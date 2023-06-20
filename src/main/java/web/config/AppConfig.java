@@ -21,8 +21,11 @@ import java.util.Properties;
 @ComponentScan("web")
 public class AppConfig {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
+
+    public AppConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource getDataSource() {

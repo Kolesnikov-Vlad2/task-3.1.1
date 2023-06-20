@@ -6,9 +6,7 @@ import web.model.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -16,7 +14,6 @@ public class UserDaoImp implements UserDao {
     @PersistenceContext
     private EntityManager em;
 
-    @Transactional
     @Override
     public void createUsersTable() {
         String createTableSQL = """
@@ -44,14 +41,12 @@ public class UserDaoImp implements UserDao {
         }
     }
 
-    @Transactional
     @Override
     public User getUserById(long id) {
         User user = em.find(User.class, id);
         return user;
     }
 
-    @Transactional
     @Override
     public List<User> getUsers() {
         TypedQuery<User> query = em.createQuery("SELECT u FROM User u", User.class);

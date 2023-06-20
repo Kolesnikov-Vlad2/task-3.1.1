@@ -35,7 +35,7 @@
             <td th:text="${user.getAge()}"></td>
             <td>
 
-                <form th:action="@{/updateUser/{id}(id=${user.id})}" th:method="get">
+                <form th:action="@{/updateUser/{id}(id=${user.id})}" th:method="post">
                     <input type="hidden" name="id" th:value="${user.id}">
                     <input type="text" name="firstName" placeholder="First name" th:value="${user.firstName}">
                     <input type="text" name="lastName" placeholder="Last name" th:value="${user.lastName}">
@@ -43,7 +43,7 @@
                     <button type="submit">Update</button>
                 </form>
 
-                <form th:action="@{/deleteUser/{id}(id=${user.id})}" th:method="get">
+                <form th:action="@{/deleteUser/{id}(id=${user.id})}" th:method="post">
                     <button type="submit">Delete</button>
                 </form>
 
