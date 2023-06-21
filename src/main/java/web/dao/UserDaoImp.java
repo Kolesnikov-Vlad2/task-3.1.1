@@ -26,13 +26,11 @@ public class UserDaoImp implements UserDao {
         em.createNativeQuery(createTableSQL).executeUpdate();
     }
 
-    @Transactional
     @Override
     public void saveUser(User user) {
         em.persist(user);
     }
 
-    @Transactional
     @Override
     public void removeUserById(long id) {
         User user = em.find(User.class, id);
@@ -53,7 +51,6 @@ public class UserDaoImp implements UserDao {
         return query.getResultList();
     }
 
-    @Transactional
     @Override
     public void updateUser(long id, User updatedUser) {
         User user = getUserById(id);
