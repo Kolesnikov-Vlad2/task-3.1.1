@@ -1,6 +1,8 @@
 package web.model;
-import javax.persistence.*;
+import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table(name = "users")
 public class User {
